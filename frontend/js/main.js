@@ -1,22 +1,24 @@
 // EVENTOS EN JAVASCRIPT (CLICK, CARGAR, KEY,)
 document.addEventListener("DOMContentLoaded", () => {
-    fetch('http://localhost:8080/api/clientes')
+    fetch('http://localhost:8080/api/productos')
         .then(response => response.json())
         .then(data => {
 
             //console.log('Datos:', data);
-            const elemento = document.getElementById("table-cliente")
+            const elemento = document.getElementById("table-producto")
 
             for (let i = 0; i < data.length; i++) {
-                let cliente = data[i];
+                let producto = data[i];
                 let fila = `
                 <tr>
-                        <td>${cliente.id}</td>
-                        <td>${cliente.nombre}</td>
-                        <td>${cliente.apellido}</td>
-                        <td>${cliente.dni}</td>
-                        <td>${cliente.telefono}</td>
-                        <td>${cliente.direccion}</td>
+                        <td>${producto.id}</td>
+                        <td>${producto.nombre}</td>
+                        <td>${producto.descripcion}</td>
+                        <td>${producto.precio_compra}</td>
+                        <td>${producto.precio_venta}</td>
+                        <td>${producto.stock_actual}</td>
+                        <td>${producto.fecha_vencimiento}</td>
+                        <td>${producto.IDcategoria}</td>
                         <td>
                                 <!-- Botón Editar -->
                                 <button class="btn btn-outline-primary me-2">
@@ -24,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                 </button>
 
                                 <!-- Botón Eliminar -->
-                                <button id="btnEliminar" data-idcliente = ${cliente.id} class="btn btn-outline-danger">
+                                <button id="btnEliminar" data-idproducto = ${producto.id} class="btn btn-outline-danger">
                                     <i class="fas fa-trash"></i> Eliminar
                                 </button>
                             </td>
@@ -45,10 +47,10 @@ document.addEventListener("click", function (e) {
     const btnDelete = e.target.closest("#btnEliminar");
     if (btnDelete) {
         alert("Eliminando...");
-        const id = btnDelete.dataset.idcliente;
+        const id = btnDelete.dataset.idproducto;
         //console.log(id); para en cosole que id es nada mas
-        //fletch("http://localhost:8080/api/clientes/"+id, {)
-        fetch(`http://localhost:8080/api/clientes/${id}`, {
+        //fletch("http://localhost:8080/api/clientes/"+id, {
+        fetch(`http://localhost:8080/api/productos/${id}`, {
             method: 'DELETE'
         })
         .then(response => {

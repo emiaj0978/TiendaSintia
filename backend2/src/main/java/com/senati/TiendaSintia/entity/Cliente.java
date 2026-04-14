@@ -25,8 +25,26 @@ public class Cliente {
     //Sin anotaciones ( @ ) extra: columna normal, puede ser nula
     private String precio_venta;
     private String stock_actual;
+    private String fecha_vencimiento;
+    private String IDcategoria;
 
-    //GETTER a SETTERS
+    public String getFecha_vencimiento() {
+        return fecha_vencimiento;
+    }
+
+    public void setFecha_vencimiento(String fecha_vencimiento) {
+        this.fecha_vencimiento = fecha_vencimiento;
+    }
+
+    public String getIDcategoria() {
+        return IDcategoria;
+    }
+
+    public void setIDcategoria(String IDcategoria) {
+        this.IDcategoria = IDcategoria;
+    }
+
+//GETTER a SETTERS
 
 
     public String getNombre() {
