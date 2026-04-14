@@ -11,7 +11,7 @@ import java.util.List;
 //Indica que esta clase maneja peticiones HTTPS y DEVUELVE JSON
 @RestController
 // Define la URL Base de todos los END-POINT de esta clase
-@RequestMapping("api/clientes")
+@RequestMapping("api/productos")
 // Esta anotacion permite que el front-end pueda llamar a esta API
 // Si no ponemos esto, el navegador bloquea las peticiones por politicas CORS
 @CrossOrigin(origins = "*")
