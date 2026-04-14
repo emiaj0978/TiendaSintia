@@ -29,4 +29,51 @@ public class Cliente {
     //GETTER a SETTERS
 
 
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public String getPrecio_compra() {
+        return precio_compra;
+    }
+
+    public void setPrecio_compra(String precio_compra) {
+        this.precio_compra = precio_compra;
+    }
+
+    public String getPrecio_venta() {
+        return precio_venta;
+    }
+
+    public void setPrecio_venta(String precio_venta) {
+        this.precio_venta = precio_venta;
+    }
+
+    public String getStock_actual() {
+        return stock_actual;
+    }
+
+    public void setStock_actual(String stock_actual) {
+        this.stock_actual = stock_actual;
+    }
 }
