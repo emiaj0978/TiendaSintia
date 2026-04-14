@@ -24,7 +24,7 @@ public class SalidaController {
     }
     //GET /api/clientes -> devuelve todos los clientes en formato JSON
     @GetMapping
-    public List<Salida> listar() {return SalidaService.listarTodos();}
+    public List<Salida> listar() {return salidaService.listarTodos();}
 
     //delete/api/clientes/{id} -> elimina un cliente por su id
     @DeleteMapping("/{id}")
