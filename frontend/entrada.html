@@ -34,7 +34,7 @@
         <div class="sidebar-logo">Dashboard</div>
         <ul>
             <li>
-                <a href="#" class="activo" data-page="home">
+                <a href="index.html" >
                     <i class="fa-solid fa-house"></i>
                     <span>Inicio</span>
                 </a>
@@ -45,13 +45,13 @@
                     <span>Categorias</span>
                 </a>
             </li>
-            <li>
-                <a href="entrada.html" >
+             <li>
+                <a href="#" class="activo" data-page="home">
                     <i class="fa-solid fa-clipboard-list"></i>
                     <span>Entrada</span>
                 </a>
             </li>
-            <li>
+             <li>
                 <a href="salida.html" >
                     <i class="fa-solid fa-clipboard-list"></i>
                     <span>Salida</span>
@@ -75,7 +75,7 @@
         </nav>
         <div class="main-content">
             <div class="mb-2 d-flex justify-content-between align-items-center border-bottom pb-3">
-                <h4 class="mb-0 fw-semibold"> Reporte de productos
+                <h4 class="mb-0 fw-semibold"> Reporte de entrada
                 </h4>
                 <button class="btn btn-primary"> Registrar
                 </button>
@@ -86,18 +86,14 @@
                     <thead class="table-dark"> <!--da color a la tabla(parte-superior) -->
                         <tr>
                             <th>ID</th>
-                            <th>Nombre</th>
-                            <th>descripcion</th>
-                            <th>precio_compra</th>
-                            <th>precio_venta</th>
-                            <th>stock_actual</th>
-                            <th>fecha_vencimiento</th>
-                            <th>IDcategoria</th>
+                            <th>fecha</th>
+                            <th>cantidad</th>
+                            <th>IDproducto</th>
                             <th>Opsiones</th>
                             
                         </tr>
                     </thead>
-                    <tbody id="table-producto">
+                    <tbody id="table-entrada">
 
                     </tbody>
                 </table>
@@ -110,7 +106,7 @@
     </main>
     
 
-    <script src="js/main.js"></script>
+    <script src="js/main3.js"></script>
     <script src="js/sidebar.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
