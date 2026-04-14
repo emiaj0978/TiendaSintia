@@ -26,7 +26,6 @@ public class Cliente {
     private String precio_venta;
     private String stock_actual;
     private String fecha_vencimiento;
-    private String IDcategoria;
 
     public String getFecha_vencimiento() {
         return fecha_vencimiento;
@@ -34,14 +33,6 @@ public class Cliente {
 
     public void setFecha_vencimiento(String fecha_vencimiento) {
         this.fecha_vencimiento = fecha_vencimiento;
-    }
-
-    public String getIDcategoria() {
-        return IDcategoria;
-    }
-
-    public void setIDcategoria(String IDcategoria) {
-        this.IDcategoria = IDcategoria;
     }
 
 //GETTER a SETTERS

@@ -5,20 +5,19 @@ document.addEventListener("DOMContentLoaded", () => {
         .then(data => {
 
             //console.log('Datos:', data);
-            const elemento = document.getElementById("table-producto")
+            const elemento = document.getElementById("table-cliente")
 
             for (let i = 0; i < data.length; i++) {
-                let producto = data[i];
+                let Producto = data[i];
                 let fila = `
                 <tr>
-                        <td>${producto.id}</td>
-                        <td>${producto.nombre}</td>
-                        <td>${producto.descripcion}</td>
-                        <td>${producto.precio_compra}</td>
-                        <td>${producto.precio_venta}</td>
-                        <td>${producto.stock_actual}</td>
-                        <td>${producto.fecha_vencimiento}</td>
-                        <td>${producto.IDcategoria}</td>
+                        <td>${Producto.id}</td>
+                        <td>${Producto.nombre}</td>
+                        <td>${Producto.descripcion}</td>
+                        <td>${Producto.precio_compra}</td>
+                        <td>${Producto.precio_venta}</td>
+                        <td>${Producto.stock_actual}</td>
+                        <td>${Producto.fecha_vencimiento}</td>
                         <td>
                                 <!-- Botón Editar -->
                                 <button class="btn btn-outline-primary me-2">
@@ -26,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                 </button>
 
                                 <!-- Botón Eliminar -->
-                                <button id="btnEliminar" data-idproducto = ${producto.id} class="btn btn-outline-danger">
+                                <button id="btnEliminar" data-idcliente = ${Producto.id} class="btn btn-outline-danger">
                                     <i class="fas fa-trash"></i> Eliminar
                                 </button>
                             </td>
@@ -47,8 +46,8 @@ document.addEventListener("click", function (e) {
     const btnDelete = e.target.closest("#btnEliminar");
     if (btnDelete) {
         alert("Eliminando...");
-        const id = btnDelete.dataset.idproducto;
-        //console.log(id); para en cosole que id es nada mas
+        const id = btnDelete.dataset.idcliente;
+        //console.log(id); //para en cosole que id es nada mas
         //fletch("http://localhost:8080/api/clientes/"+id, {
         fetch(`http://localhost:8080/api/productos/${id}`, {
             method: 'DELETE'
@@ -59,7 +58,7 @@ document.addEventListener("click", function (e) {
                 // Recargar la página o actualizar la tabla
                 location.reload();
             }else {
-                alert('Error al eliminar el cliente.');
+                alert('Error al eliminar el producto.');
             }
         });
     }
