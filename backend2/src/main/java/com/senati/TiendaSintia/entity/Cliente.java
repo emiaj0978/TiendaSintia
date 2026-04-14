@@ -26,7 +26,10 @@ public class Cliente {
     private String precio_venta;
     private String stock_actual;
     private String fecha_vencimiento;
-    private String IDcategoria;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "IDcategoria")  // Esto es la llave foránea
+    private Categoria categoria;
 
     public String getFecha_vencimiento() {
         return fecha_vencimiento;
@@ -36,13 +39,14 @@ public class Cliente {
         this.fecha_vencimiento = fecha_vencimiento;
     }
 
-    public String getIDcategoria() {
-        return IDcategoria;
+    public Categoria getCategoria() {
+        return categoria;
     }
 
-    public void setIDcategoria(String IDcategoria) {
-        this.IDcategoria = IDcategoria;
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
     }
+
     //GETTER a SETTERS
 
 

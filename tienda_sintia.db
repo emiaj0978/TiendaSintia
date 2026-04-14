@@ -1,0 +1,49 @@
+CREATE DATABASE tienda_sintia;
+USE tienda_sintia;
+
+
+CREATE TABLE Categoria (
+    IDcategoria INT AUTO_INCREMENT PRIMARY KEY,
+    nombre_categoria VARCHAR(100) NOT NULL UNIQUE, -- constraint extra
+    descripcion VARCHAR(255)
+);
+
+CREATE TABLE Producto (
+    IDproducto INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    descripcion VARCHAR(255),
+    precio_compra DECIMAL(10,2) NOT NULL,
+    precio_venta DECIMAL(10,2) NOT NULL,
+    stock_actual INT NOT NULL DEFAULT 0, -- constraint extra (DEFAULT)
+    fecha_vencimiento DATE,
+    IDcategoria INT NOT NULL,
+    FOREIGN KEY (IDcategoria) REFERENCES Categoria(IDcategoria)
+);
+
+CREATE TABLE Entrada (
+    IDentrada INT AUTO_INCREMENT PRIMARY KEY,
+    fecha DATE NOT NULL,
+    cantidad INT NOT NULL,
+    IDproducto INT NOT NULL,
+    FOREIGN KEY (IDproducto) REFERENCES Producto(IDproducto)
+);
+
+CREATE TABLE Salida (
+    IDsalida INT AUTO_INCREMENT PRIMARY KEY,
+    fecha DATE NOT NULL,
+    cantidad INT NOT NULL,
+    IDproducto INT NOT NULL,
+    FOREIGN KEY (IDproducto) REFERENCES Producto(IDproducto)
+);
+
+
+
+INSERT INTO Categoria (nombre_categoria, descripcion) VALUES ('Bebidas', 'Productos líquidos'),('Snacks', 'Comida rápida');
+
+INSERT INTO Producto (nombre, descripcion, precio_compra, precio_venta, stock_actual, fecha_vencimiento, IDcategoria) VALUES
+('Coca Cola', 'Bebida gaseosa', 2.50, 4.00, 100, '2026-12-31', 1),
+('Papas Lays', 'Snack salado', 1.00, 2.00, 50, '2026-06-30', 2);
+
+INSERT INTO Entrada (fecha, cantidad, IDproducto) VALUES ('2026-03-01', 50, 1),('2026-03-02', 30, 2);
+
+INSERT INTO Salida (fecha, cantidad, IDproducto) VALUES ('2026-03-05', 20, 1),('2026-03-06', 10, 2);
