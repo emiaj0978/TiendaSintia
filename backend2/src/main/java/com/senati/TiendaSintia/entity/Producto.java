@@ -4,8 +4,8 @@ import jakarta.persistence.*;
 // @Entity le dice a Hibernate que esta clase representa una tabla en la BD
 @Entity
 // @Table indica el nombre exacto de tabla en MYSQL o MariaDB
-@Table(name = "Producto")
-public class Cliente {
+@Table(name = "producto")
+public class Producto {
     // @Id marca este campo como la clave primaria de la tabla
     // @GeneratedValue hace que el ID se genere automaticamente (AutoIncrement)
     // @Column(name="cliente_id") indica el nombre exacto de la columna en mysql

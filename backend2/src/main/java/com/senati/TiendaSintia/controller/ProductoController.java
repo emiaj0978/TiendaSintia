@@ -1,7 +1,7 @@
 package com.senati.TiendaSintia.controller;
 
-import com.senati.TiendaSintia.entity.Cliente;
-import com.senati.TiendaSintia.service.ClienteService;
+import com.senati.TiendaSintia.entity.Producto;
+import com.senati.TiendaSintia.service.ProductoService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,22 +15,22 @@ import java.util.List;
 // Esta anotacion permite que el front-end pueda llamar a esta API
 // Si no ponemos esto, el navegador bloquea las peticiones por politicas CORS
 @CrossOrigin(origins = "*")
-public class ClienteController {
+public class ProductoController {
     //DECLARAMOS UNA VARIABLE DEFINIDA
     // Inyectamos el servicio para acceder a la logica del negocio
-    private final ClienteService clienteService;
-    public ClienteController(ClienteService clienteService){
-        this.clienteService = clienteService;
+    private final ProductoService productoService;
+    public ProductoController(ProductoService productoService){
+        this.productoService = productoService;
     }
     //GET /api/clientes -> devuelve todos los clientes en formato JSON
     @GetMapping
-    public List<Cliente> listar() {return clienteService.listarTodos();}
+    public List<Producto> listar() {return productoService.listarTodos();}
 
     //delete/api/clientes/{id} -> elimina un cliente por su id
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> eliminar(@PathVariable long id){
 
-        clienteService.eliminarCliente(id);
+        productoService.eliminarProducto(id);
         return ResponseEntity.noContent().build();
 
     }
