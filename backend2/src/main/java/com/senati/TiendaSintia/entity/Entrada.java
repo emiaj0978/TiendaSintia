@@ -18,8 +18,10 @@ public class Entrada {
     private String fecha;
     @Column(nullable = false)
     private String cantidad;
-    //Sin anotaciones ( @ ) extra: columna normal, puede ser nula
-    private String IDproducto;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "IDproducto")  // Esto es la llave foránea
+    private Producto producto;
 
 //GETTER a SETTERS
 
@@ -29,14 +31,6 @@ public class Entrada {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getIDproducto() {
-        return IDproducto;
-    }
-
-    public void setIDproducto(String IDproducto) {
-        this.IDproducto = IDproducto;
     }
 
     public String getCantidad() {
@@ -53,5 +47,13 @@ public class Entrada {
 
     public void setFecha(String fecha) {
         this.fecha = fecha;
+    }
+
+    public Producto getProducto() {
+        return producto;
+    }
+
+    public void setProducto(Producto producto) {
+        this.producto = producto;
     }
 }

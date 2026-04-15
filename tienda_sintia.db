@@ -37,13 +37,80 @@ CREATE TABLE Salida (
 );
 
 
+INSERT INTO Categoria (nombre_categoria, descripcion) VALUES 
+('Bebidas', 'Productos líquidos'),
+('Snacks', 'Comida rápida'),
+('Lácteos', 'Productos derivados de la leche'),
+('Abarrotes', 'Productos envasados no perecibles'),
+('Limpieza', 'Productos de limpieza del hogar'),
+('Bebidas Alcohólicas', 'Bebidas con contenido alcohólico'),
+('Carnes', 'Productos cárnicos'),
+('Verduras', 'Productos vegetales frescos'),
+('Frutas', 'Frutas frescas'),
+('Panadería', 'Productos de panadería y pastelería');
 
-INSERT INTO Categoria (nombre_categoria, descripcion) VALUES ('Bebidas', 'Productos líquidos'),('Snacks', 'Comida rápida');
 
 INSERT INTO Producto (nombre, descripcion, precio_compra, precio_venta, stock_actual, fecha_vencimiento, IDcategoria) VALUES
 ('Coca Cola', 'Bebida gaseosa', 2.50, 4.00, 100, '2026-12-31', 1),
-('Papas Lays', 'Snack salado', 1.00, 2.00, 50, '2026-06-30', 2);
+('Papas Lays', 'Snack salado', 1.00, 2.00, 50, '2026-12-31', 2),
+('Leche Gloria', 'Leche entera pasteurizada', 3.50, 5.00, 80, '2026-12-15', 3),
+('Yogur Natural', 'Yogur sin azúcar', 2.00, 3.50, 60, '2026-11-20', 3),
+('Arroz Costeño', 'Arroz extra grano', 4.00, 6.00, 200, '2027-06-01', 4),
+('Fideos Don Vittorio', 'Fideos spaghetti', 2.50, 4.00, 150, '2027-05-01', 4),
+('Aceite Primor', 'Aceite vegetal 1L', 5.00, 8.00, 100, '2027-03-01', 4),
+('Lavavajillas Marsella', 'Líquido lavavajillas', 4.00, 6.50, 40, '2027-12-31', 5),
+('Lejía Clorox', 'Blanqueador de ropa', 3.00, 5.00, 60, '2027-12-31', 5),
+('Cerveza Cristal', 'Cerveza rubia 650ml', 3.00, 5.00, 120, '2026-12-31', 6),
+('Vino Tinto', 'Vino tinto chileno', 15.00, 25.00, 30, '2028-03-01', 6),
+('Pollo Entero', 'Pollo fresco', 8.00, 12.00, 40, '2026-12-10', 7),
+('Carne Molida', 'Carne de res molida', 12.00, 18.00, 25, '2026-12-08', 7),
+('Lechuga', 'Lechuga fresca', 1.50, 2.50, 50, '2026-12-05', 8),
+('Tomate', 'Tomate riñón', 2.00, 3.50, 60, '2026-12-06', 8),
+('Manzana Delicia', 'Manzana roja', 3.00, 5.00, 45, '2026-12-12', 9),
+('Plátano de seda', 'Plátano dulce', 1.50, 2.80, 80, '2026-12-09', 9),
+('Pan Francés', 'Pan blanco', 1.00, 2.00, 100, '2026-12-03', 10),
+('Queque', 'Queque marmolado', 4.00, 7.00, 30, '2026-12-15', 10);
 
-INSERT INTO Entrada (fecha, cantidad, IDproducto) VALUES ('2026-03-01', 50, 1),('2026-03-02', 30, 2);
 
-INSERT INTO Salida (fecha, cantidad, IDproducto) VALUES ('2026-03-05', 20, 1),('2026-03-06', 10, 2);
+INSERT INTO Entrada (fecha, cantidad, IDproducto) VALUES 
+('2026-03-01', 50, 1),   
+('2026-03-02', 30, 2),   
+('2026-03-10', 100, 3),  
+('2026-03-10', 80, 4),   
+('2026-03-11', 200, 5), 
+('2026-03-11', 60, 6),  
+('2026-03-12', 50, 7), 
+('2026-03-12', 70, 8), 
+('2026-03-13', 100, 9), 
+('2026-03-13', 40, 10), 
+('2026-03-14', 30, 11), 
+('2026-03-14', 60, 12), 
+('2026-03-15', 80, 13), 
+('2026-03-15', 40, 14), 
+('2026-03-16', 50, 15), 
+('2026-03-16', 70, 16), 
+('2026-03-17', 30, 17), 
+('2026-03-17', 50, 18), 
+('2026-03-18', 25, 19); 
+
+
+INSERT INTO Salida (fecha, cantidad, IDproducto) VALUES 
+('2026-03-05', 20, 1),  
+('2026-03-06', 10, 2),   
+('2026-03-11', 20, 3), 
+('2026-03-11', 15, 4), 
+('2026-03-12', 30, 5), 
+('2026-03-12', 10, 6),  
+('2026-03-13', 8, 7),  
+('2026-03-13', 12, 8),  
+('2026-03-14', 25, 9),
+('2026-03-14', 5, 10),  
+('2026-03-15', 10, 11),
+('2026-03-15', 8, 12),  
+('2026-03-16', 15, 13), 
+('2026-03-16', 5, 14),  
+('2026-03-17', 20, 15), 
+('2026-03-17', 10, 16), 
+('2026-03-18', 5, 17),  
+('2026-03-18', 8, 18), 
+('2026-03-19', 3, 19); 

@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         <td>${Entrada.id}</td>
                         <td>${Entrada.fecha}</td>
                         <td>${Entrada.cantidad}</td>
-                        <td>${Entrada.IDproducto}</td>
+                        <td>${Entrada.producto.nombre}</td>
                         <td>
                                 <!-- Botón Editar -->
                                 <button class="btn btn-outline-primary me-2">
