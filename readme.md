@@ -58,6 +58,7 @@ Solucion tecnologica: Desarrollar un sistema web con Java Spring Boot y MySQL qu
 ---
 
 ## Estructura del proyecto
+```
 JavaWeb-TiendaSintia/
 ├── backend/ → Spring Boot (Java)
 │ ├── src/
@@ -69,6 +70,7 @@ JavaWeb-TiendaSintia/
 │ └── index.html
 
 text
+```
 
 ---
 
