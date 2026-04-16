@@ -20,10 +20,6 @@ document.addEventListener("DOMContentLoaded", () => {
                                     <i class="fas fa-edit"></i> Editar
                                 </button>
 
-                                <!-- Botón Eliminar -->
-                                <button id="btnEliminar" data-idcategoria = ${Categoria.id} class="btn btn-outline-danger">
-                                    <i class="fas fa-trash"></i> Eliminar
-                                </button>
                             </td>
                 </tr>
                         `
@@ -35,29 +31,4 @@ document.addEventListener("DOMContentLoaded", () => {
             //console.log(elemento)
         })
 });
-
-//evento de click en javascript
-//creamos una variable que almacene el DOM de ese elemento
-document.addEventListener("click", function (e) {
-    const btnDelete = e.target.closest("#btnEliminar");
-    if (btnDelete) {
-        alert("Eliminando...");
-        const id = btnDelete.dataset.idcategoria;
-        //console.log(id); //para en cosole que id es nada mas
-        //fletch("http://localhost:8080/api/clientes/"+id, {
-        fetch(`http://localhost:8080/api/categorias/${id}`, {
-            method: 'DELETE'
-        })
-        .then(response => {
-            if (response.ok) {
-                alert('Cliente eliminado correctamente.');
-                // Recargar la página o actualizar la tabla
-                location.reload();
-            }else {
-                alert('Error al eliminar el producto.');
-            }
-        });
-    }
-});
-
 
