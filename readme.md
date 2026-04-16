@@ -144,11 +144,11 @@ text
 El sistema cuenta con 4 tablas principales:
 
 | Tabla | Descripcion |
-|---|---|
-| USUARIO | Persona encargada de gestionar el inventario |
+|-------|-------------|
 | CATEGORIA | Clasificación de los productos |
 | PRODUCTO | Registro de cada producto del inventario |
-| MOVIMIENTO | Registro de cada entrada y salida de stock |
+| ENTRADA | Registro de entradas de productos al almacén |
+| SALIDA | Registro de salidas de productos del almacén |
 
 ### Diagrama Entidad-Relacion (DER)
 ![Diagrama Entidad Relacion](https://github.com/ojitoslanda/testing/blob/master/img/javaweb/Diagrama_Entidad_Relacion.png)
@@ -157,18 +157,19 @@ El sistema cuenta con 4 tablas principales:
 ![Modelo Relacional](https://github.com/ojitoslanda/testing/blob/master/img/javaweb/Modelo_Relacional.png)
 
 ### Cardinalidades
-USUARIO — PRODUCTO (1:N) <br>
-Un usuario puede gestionar muchos productos, pero un producto es gestionado por un solo usuario. <br>
 CATEGORIA — PRODUCTO (1:N) <br>
 Una categoría puede tener muchos productos, pero un producto pertenece a una sola categoría. <br>
-PRODUCTO — MOVIMIENTO (1:N) <br>
-Un producto puede tener muchos movimientos (entradas/salidas), pero un movimiento pertenece a un solo producto.
+PRODUCTO — ENTRADA (1:N) <br>
+Un producto puede tener muchas entradas, pero una entrada pertenece a un solo producto. <br>
+PRODUCTO — SALIDA (1:N) <br>
+Un producto puede tener muchas salidas, pero una salida pertenece a un solo producto.
 
 | Entidad A | Relacion | Entidad B | Cardinalidad |
-|---|---|---|---|
-| USUARIO | gestiona | PRODUCTO | 1:N |
+|-----------|----------|-----------|--------------|
 | CATEGORIA | contiene | PRODUCTO | 1:N |
-| PRODUCTO | genera | MOVIMIENTO | 1:N |
+| PRODUCTO | genera | ENTRADA | 1:N |
+| PRODUCTO | genera | SALIDA | 1:N |
+
 
 ### Script de Base de datos
 
