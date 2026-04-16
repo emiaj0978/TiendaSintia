@@ -16,25 +16,87 @@ Justificacion: Se necesita un sistema digital para reemplazar el registro manual
 Problema: El dueño de la Tienda Sintia lleva el registro de productos y stock en un cuaderno o en papel, lo que genera errores, pérdida de información, dificultad para saber qué productos están por agotarse, cuáles están en exceso o cuáles podrían vencerse. <br>
 Solucion tecnologica: Desarrollar un sistema web con Java Spring Boot y MySQL que permita registrar productos, categorías, controlar stock en tiempo real, mostrar alertas de vencimiento y niveles mínimos de reposición.
 
-## Requerimientos Funcionales
-| Codigo | Descripcion |
-|---|---|
-| RF01 | El sistema debe permitir registrar un nuevo producto con nombre, categoría, stock, stock mínimo, fecha de vencimiento y precio |
-| RF02 | El sistema debe permitir registrar una nueva categoría de productos |
-| RF03 | El sistema debe permitir registrar entradas y salidas de stock (compras y ventas) |
-| RF04 | El sistema debe mostrar el listado de todos los productos con su stock actual |
-| RF05 | El sistema debe mostrar alertas de productos con stock por debajo del mínimo |
-| RF06 | El sistema debe mostrar alertas de productos próximos a vencer (7 días o menos) |
-| RF07 | El sistema debe mostrar productos con exceso de existencias |
-| RF08 | El sistema debe mostrar el historial de movimientos de cada producto |
+## ✅ Requerimientos Funcionales
+
+### Gestión de Productos
+| Código | Descripción |
+|--------|-------------|
+| RF01 | El sistema debe permitir registrar nuevos productos asociados a una categoría |
+| RF02 | El sistema debe permitir modificar la información de un producto |
+| RF03 | El sistema debe permitir eliminar productos del sistema |
+| RF04 | El sistema debe permitir visualizar los productos filtrados por categoría |
+| RF05 | El sistema debe mostrar el stock actual de cada producto |
+
+### Gestión de Categorías
+| Código | Descripción |
+|--------|-------------|
+| RF06 | El sistema debe permitir registrar nuevas categorías de productos |
+| RF07 | El sistema debe permitir editar la información de una categoría existente |
+| RF08 | El sistema debe permitir eliminar categorías |
+| RF09 | El sistema debe mostrar el listado de categorías registradas |
+
+### Gestión de Entradas de Productos
+| Código | Descripción |
+|--------|-------------|
+| RF10 | El sistema debe permitir registrar entradas de productos al almacén indicando fecha y cantidad |
+| RF11 | El sistema debe actualizar automáticamente el stock al registrar una entrada |
+| RF12 | El sistema debe mostrar el historial de entradas por producto |
+
+### Gestión de Salidas de Productos
+| Código | Descripción |
+|--------|-------------|
+| RF13 | El sistema debe permitir registrar salidas de productos indicando fecha y cantidad |
+| RF14 | El sistema debe actualizar automáticamente el stock al registrar una salida |
+| RF15 | El sistema debe mostrar el historial de salidas por producto |
+
+### Control de Stock
+| Código | Descripción |
+|--------|-------------|
+| RF16 | El sistema debe generar una alerta cuando el stock de un producto sea igual o menor al nivel mínimo establecido |
+| RF17 | El sistema debe permitir visualizar un listado de productos con bajo stock |
+| RF18 | El sistema debe mostrar productos con exceso de existencias |
+| RF19 | El sistema debe mostrar alertas de productos próximos a vencer (7 días o menos) |
+
+---
 
 ## Requerimientos No Funcionales
 
-| Codigo | Tipo | Descripcion |
-|---|---|---|
-| RNF01 | Rendimiento | El sistema debe cargar cada pantalla en menos de 3 segundos |
-| RNF02 | Usabilidad | La interfaz debe ser intuitiva y fácil de usar sin necesidad de capacitación previa |
-| RNF03 | Seguridad | Solo usuarios autorizados podrán acceder al sistema mediante usuario y contraseña |
+### Rendimiento
+| Código | Descripción |
+|--------|-------------|
+| RNF01 | El sistema debe responder a las consultas de productos en un tiempo máximo de 3 segundos |
+| RNF02 | El sistema debe actualizar el stock inmediatamente después de registrar una entrada o salida |
+
+### Seguridad
+| Código | Descripción |
+|--------|-------------|
+| RNF03 | El sistema debe contar con autenticación mediante usuario y contraseña para acceder a la plataforma |
+| RNF04 | Solo el usuario administrador podrá registrar, editar o eliminar productos y categorías |
+| RNF05 | La información almacenada en la base de datos debe estar protegida contra accesos no autorizados |
+
+### Usabilidad
+| Código | Descripción |
+|--------|-------------|
+| RNF06 | El sistema debe contar con una interfaz sencilla e intuitiva para facilitar su uso |
+| RNF07 | El sistema debe mostrar mensajes claros de confirmación o error al realizar operaciones |
+
+### Integridad de Datos
+| Código | Descripción |
+|--------|-------------|
+| RNF08 | El sistema debe garantizar que no se registren salidas de productos con cantidad mayor al stock disponible |
+| RNF09 | La base de datos debe mantener la consistencia e integridad de la información almacenada |
+
+### Disponibilidad
+| Código | Descripción |
+|--------|-------------|
+| RNF10 | El sistema debe estar disponible durante el horario de atención de la tienda |
+
+### Escalabilidad
+| Código | Descripción |
+|--------|-------------|
+| RNF11 | El sistema debe permitir futuras ampliaciones, como la integración con facturación electrónica o generación de reportes estadísticos |
+
+---
 
 ## Stack completo
 1. Trello             = Gestión del proyecto (Kanban)
