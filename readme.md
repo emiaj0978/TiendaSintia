@@ -174,79 +174,143 @@ Un producto puede tener muchas salidas, pero una salida pertenece a un solo prod
 ### Script de Base de datos
 
 ```sql
-CREATE DATABASE IF NOT EXISTS tienda_sintia;
+CREATE DATABASE tienda_sintia;
 USE tienda_sintia;
 
-CREATE TABLE usuario (
-    usuario_id INT AUTO_INCREMENT PRIMARY KEY,
-    nombre VARCHAR(100) NOT NULL,
-    apellido VARCHAR(100) NOT NULL,
-    email VARCHAR(100) UNIQUE NOT NULL,
-    password VARCHAR(255) NOT NULL,
-    rol VARCHAR(20) DEFAULT 'admin'
+
+CREATE TABLE Categoria (
+    IDcategoria INT AUTO_INCREMENT PRIMARY KEY,
+    nombre_categoria VARCHAR(100) NOT NULL UNIQUE, -- constraint extra
+    descripcion VARCHAR(255)
 );
 
-CREATE TABLE categoria (
-    categoria_id INT AUTO_INCREMENT PRIMARY KEY,
-    nombre VARCHAR(50) NOT NULL UNIQUE,
-    descripcion TEXT
-);
-
-CREATE TABLE producto (
-    producto_id INT AUTO_INCREMENT PRIMARY KEY,
-    usuario_id INT NOT NULL,
-    categoria_id INT NOT NULL,
+CREATE TABLE Producto (
+    IDproducto INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(100) NOT NULL,
-    cantidad_stock INT NOT NULL DEFAULT 0,
-    stock_minimo INT NOT NULL DEFAULT 5,
+    descripcion VARCHAR(255),
+    precio_compra DECIMAL(10,2) NOT NULL,
+    precio_venta DECIMAL(10,2) NOT NULL,
+    stock_actual INT NOT NULL DEFAULT 0, -- constraint extra (DEFAULT)
     fecha_vencimiento DATE,
-    precio_compra DECIMAL(10,2),
-    precio_venta DECIMAL(10,2),
-    FOREIGN KEY (usuario_id) REFERENCES usuario(usuario_id),
-    FOREIGN KEY (categoria_id) REFERENCES categoria(categoria_id)
+    IDcategoria INT NOT NULL,
+    FOREIGN KEY (IDcategoria) REFERENCES Categoria(IDcategoria)
 );
 
-CREATE TABLE movimiento (
-    movimiento_id INT AUTO_INCREMENT PRIMARY KEY,
-    producto_id INT NOT NULL,
-    tipo ENUM('entrada', 'salida') NOT NULL,
+CREATE TABLE Entrada (
+    IDentrada INT AUTO_INCREMENT PRIMARY KEY,
+    fecha DATE NOT NULL,
     cantidad INT NOT NULL,
-    fecha_movimiento DATETIME DEFAULT CURRENT_TIMESTAMP,
-    observacion TEXT,
-    FOREIGN KEY (producto_id) REFERENCES producto(producto_id)
+    IDproducto INT NOT NULL,
+    FOREIGN KEY (IDproducto) REFERENCES Producto(IDproducto)
 );
 
--- Insertar categorías
-INSERT INTO categoria (nombre, descripcion) VALUES
-('Bebidas', 'Gaseosas, agua, jugos, bebidas en general'),
-('Abarrotes', 'Arroz, azúcar, fideos, enlatados'),
-('Snacks', 'Papas fritas, galletas, golosinas'),
-('Limpieza', 'Detergentes, desinfectantes, jabones'),
-('Higiene Personal', 'Shampoo, pasta dental, desodorantes');
+CREATE TABLE Salida (
+    IDsalida INT AUTO_INCREMENT PRIMARY KEY,
+    fecha DATE NOT NULL,
+    cantidad INT NOT NULL,
+    IDproducto INT NOT NULL,
+    FOREIGN KEY (IDproducto) REFERENCES Producto(IDproducto)
+);
 
--- Insertar usuario
-INSERT INTO usuario (nombre, apellido, email, password, rol) VALUES
-('Admin', 'Sintia', 'admin@tiendaintia.com', '123456', 'admin');
 
--- Insertar productos
-INSERT INTO producto (usuario_id, categoria_id, nombre, cantidad_stock, stock_minimo, fecha_vencimiento, precio_compra, precio_venta) VALUES
-(1, 1, 'Coca Cola 1.5L', 50, 10, '2025-12-31', 4.00, 6.50),
-(1, 1, 'Agua San Luis 2L', 30, 8, '2026-06-15', 2.00, 3.50),
-(1, 2, 'Arroz Costeño 1kg', 15, 5, '2025-10-10', 3.50, 5.00),
-(1, 3, 'Papas Lays 140g', 8, 5, '2025-02-20', 4.50, 7.00),
-(1, 4, 'Lejía Clorox 1L', 20, 5, '2026-01-01', 5.00, 8.00),
-(1, 5, 'Shampoo Sedal 400ml', 3, 5, '2025-09-01', 12.00, 18.00);
+INSERT INTO Categoria (nombre_categoria, descripcion) VALUES 
+('Bebidas', 'Productos líquidos'),
+('Snacks', 'Comida rápida'),
+('Lácteos', 'Productos derivados de la leche'),
+('Abarrotes', 'Productos envasados no perecibles'),
+('Limpieza', 'Productos de limpieza del hogar'),
+('Bebidas Alcohólicas', 'Bebidas con contenido alcohólico'),
+('Carnes', 'Productos cárnicos'),
+('Verduras', 'Productos vegetales frescos'),
+('Frutas', 'Frutas frescas'),
+('Panadería', 'Productos de panadería y pastelería');
 
--- Insertar movimientos
-INSERT INTO movimiento (producto_id, tipo, cantidad, observacion) VALUES
-(1, 'entrada', 50, 'Compra inicial'),
-(2, 'entrada', 30, 'Compra inicial'),
-(3, 'entrada', 15, 'Compra inicial'),
-(4, 'entrada', 20, 'Compra inicial'),
-(4, 'salida', 12, 'Venta del día'),
-(5, 'entrada', 20, 'Compra inicial'),
-(6, 'entrada', 10, 'Compra inicial'),
-(6, 'salida', 7, 'Venta del día');
+
+INSERT INTO Producto (nombre, descripcion, precio_compra, precio_venta, stock_actual, fecha_vencimiento, IDcategoria) VALUES
+('Coca Cola', 'Bebida gaseosa', 2.50, 4.00, 100, '2026-12-31', 1),
+('Papas Lays', 'Snack salado', 1.00, 2.00, 50, '2026-12-31', 2),
+('Leche Gloria', 'Leche entera pasteurizada', 3.50, 5.00, 80, '2026-12-15', 3),
+('Yogur Natural', 'Yogur sin azúcar', 2.00, 3.50, 60, '2026-11-20', 3),
+('Arroz Costeño', 'Arroz extra grano', 4.00, 6.00, 200, '2027-06-01', 4),
+('Fideos Don Vittorio', 'Fideos spaghetti', 2.50, 4.00, 150, '2027-05-01', 4),
+('Aceite Primor', 'Aceite vegetal 1L', 5.00, 8.00, 100, '2027-03-01', 4),
+('Lavavajillas Marsella', 'Líquido lavavajillas', 4.00, 6.50, 40, '2027-12-31', 5),
+('Lejía Clorox', 'Blanqueador de ropa', 3.00, 5.00, 60, '2027-12-31', 5),
+('Cerveza Cristal', 'Cerveza rubia 650ml', 3.00, 5.00, 120, '2026-12-31', 6),
+('Vino Tinto', 'Vino tinto chileno', 15.00, 25.00, 30, '2028-03-01', 6),
+('Pollo Entero', 'Pollo fresco', 8.00, 12.00, 40, '2026-12-10', 7),
+('Carne Molida', 'Carne de res molida', 12.00, 18.00, 25, '2026-12-08', 7),
+('Lechuga', 'Lechuga fresca', 1.50, 2.50, 50, '2026-12-05', 8),
+('Tomate', 'Tomate riñón', 2.00, 3.50, 60, '2026-12-06', 8),
+('Manzana Delicia', 'Manzana roja', 3.00, 5.00, 45, '2026-12-12', 9),
+('Plátano de seda', 'Plátano dulce', 1.50, 2.80, 80, '2026-12-09', 9),
+('Pan Francés', 'Pan blanco', 1.00, 2.00, 100, '2026-12-03', 10),
+('Queque', 'Queque marmolado', 4.00, 7.00, 30, '2026-12-15', 10);
+
+
+INSERT INTO Entrada (fecha, cantidad, IDproducto) VALUES 
+('2026-03-01', 50, 1),   
+('2026-03-02', 30, 2),   
+('2026-03-10', 100, 3),  
+('2026-03-10', 80, 4),   
+('2026-03-11', 200, 5), 
+('2026-03-11', 60, 6),  
+('2026-03-12', 50, 7), 
+('2026-03-12', 70, 8), 
+('2026-03-13', 100, 9), 
+('2026-03-13', 40, 10), 
+('2026-03-14', 30, 11), 
+('2026-03-14', 60, 12), 
+('2026-03-15', 80, 13), 
+('2026-03-15', 40, 14), 
+('2026-03-16', 50, 15), 
+('2026-03-16', 70, 16), 
+('2026-03-17', 30, 17), 
+('2026-03-17', 50, 18), 
+('2026-03-18', 25, 19); 
+
+
+INSERT INTO Salida (fecha, cantidad, IDproducto) VALUES 
+('2026-03-05', 20, 1),  
+('2026-03-06', 10, 2),   
+('2026-03-11', 20, 3), 
+('2026-03-11', 15, 4), 
+('2026-03-12', 30, 5), 
+('2026-03-12', 10, 6),  
+('2026-03-13', 8, 7),  
+('2026-03-13', 12, 8),  
+('2026-03-14', 25, 9),
+('2026-03-14', 5, 10),  
+('2026-03-15', 10, 11),
+('2026-03-15', 8, 12),  
+('2026-03-16', 15, 13), 
+('2026-03-16', 5, 14),  
+('2026-03-17', 20, 15), 
+('2026-03-17', 10, 16), 
+('2026-03-18', 5, 17),  
+('2026-03-18', 8, 18), 
+('2026-03-19', 3, 19); 
+
+
+SELECT p.nombre, p.precio_venta, c.nombre_categoria
+FROM Producto p
+JOIN Categoria c ON p.IDcategoria = c.IDcategoria
+ORDER BY p.nombre;
+
+SELECT e.fecha, e.cantidad, p.nombre
+FROM Entrada e
+JOIN Producto p ON e.IDproducto = p.IDproducto
+WHERE e.cantidad > 20
+ORDER BY e.fecha DESC;
+
+SELECT s.fecha, s.cantidad, p.nombre
+FROM Salida s
+JOIN Producto p ON s.IDproducto = p.IDproducto
+WHERE s.fecha >= '2026-03-01'
+ORDER BY s.cantidad DESC;
+
+select * from producto;
+select * from categoria;
 ```
 
 ---
