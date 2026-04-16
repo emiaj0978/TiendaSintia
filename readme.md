@@ -1,5 +1,5 @@
-Más info en [mi tablero de trello](https://trello.com/b/4lC3J8oT/java-proyecto-senati)
-![TRELLO](https://github.com/ojitoslanda/testing/blob/master/img/javaweb/Trello.png)
+Más info en [mi tablero de trello](https://trello.com/b/su8QLheY/tienda-sintia)
+![TRELLO](https://github.com/emiaj0978/TiendaSintia/blob/main/frontend/imagen/trello.png)
 
 ---
 # Sistema de Gestión de Inventario - Tienda Sintia
