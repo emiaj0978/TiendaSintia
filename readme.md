@@ -137,7 +137,7 @@ text
 ---
 
 ### DIAGRAMA DE FIGMA UI/UX
-![FIGMA](https://www.figma.com/design/BXoCcKRR9FjiXnO5TxFhuK/Proyecto-Senati?node-id=1-7&t=OXx4vC4zMc8uVobf-1)
+![FIGMA](https://www.figma.com/design/BhCK6tHBD2xM2IzBFCgQyl/Sin-t%C3%ADtulo?node-id=0-1&t=AccHEWjU25OxdNGI-1)
 
 ## Base de datos
 
