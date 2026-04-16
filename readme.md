@@ -151,10 +151,10 @@ El sistema cuenta con 4 tablas principales:
 | SALIDA | Registro de salidas de productos del almacén |
 
 ### Diagrama Entidad-Relacion (DER)
-![Diagrama Entidad Relacion](https://github.com/ojitoslanda/testing/blob/master/img/javaweb/Diagrama_Entidad_Relacion.png)
+![Diagrama Entidad Relacion](https://github.com/emiaj0978/TiendaSintia/blob/main/frontend/imagen/relacional(der).png)
 
 ### Modelo Relacional (MR)
-![Modelo Relacional](https://github.com/ojitoslanda/testing/blob/master/img/javaweb/Modelo_Relacional.png)
+![Modelo Relacional](https://github.com/emiaj0978/TiendaSintia/blob/main/frontend/imagen/entidadrelacion(mr).png)
 
 ### Cardinalidades
 CATEGORIA — PRODUCTO (1:N) <br>
