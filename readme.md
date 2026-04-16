@@ -16,7 +16,7 @@ Justificacion: Se necesita un sistema digital para reemplazar el registro manual
 Problema: El dueño de la Tienda Sintia lleva el registro de productos y stock en un cuaderno o en papel, lo que genera errores, pérdida de información, dificultad para saber qué productos están por agotarse, cuáles están en exceso o cuáles podrían vencerse. <br>
 Solucion tecnologica: Desarrollar un sistema web con Java Spring Boot y MySQL que permita registrar productos, categorías, controlar stock en tiempo real, mostrar alertas de vencimiento y niveles mínimos de reposición.
 
-## ✅ Requerimientos Funcionales
+## Requerimientos Funcionales
 
 ### Gestión de Productos
 | Código | Descripción |
@@ -137,7 +137,7 @@ text
 ---
 
 ### DIAGRAMA DE FIGMA UI/UX
-![FIGMA](https://www.figma.com/design/BhCK6tHBD2xM2IzBFCgQyl/Sin-t%C3%ADtulo?node-id=0-1&t=AccHEWjU25OxdNGI-1)
+![FIGMA](https://www.figma.com/design/BhCK6tHBD2xM2IzBFCgQyl/Sin-t%C3%ADtulo?node-id=0-1&p=f&t=biuAk1qIKtQNHJ7L-0)
 
 ## Base de datos
 
