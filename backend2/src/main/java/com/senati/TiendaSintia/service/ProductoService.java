@@ -20,6 +20,10 @@ public class ProductoService {
         return productoRepository.findAll();
     }
 
+    // Crear un cliente        //nombre de la clase
+    public Producto crearProducto(Producto producto){
+        return productoRepository.save(producto);
+    }
     //Eliminar el cliente por el id
     public void eliminarProducto(long id){
         productoRepository.deleteById(id);

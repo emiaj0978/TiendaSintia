@@ -20,6 +20,10 @@ public class SalidaService {
         return salidaRepository.findAll();
     }
 
+    // Crear un cliente        //nombre de la clase
+    public Salida crearSalida(Salida salida){
+        return salidaRepository.save(salida);
+    }
     //Eliminar el cliente por el id
     public void eliminarSalida(long id){
         salidaRepository.deleteById(id);

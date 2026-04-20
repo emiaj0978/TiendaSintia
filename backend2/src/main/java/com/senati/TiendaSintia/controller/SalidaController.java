@@ -26,6 +26,12 @@ public class SalidaController {
     @GetMapping
     public List<Salida> listar() {return salidaService.listarTodos();}
 
+    //POST /api/clientes -> para guardar un cliente
+    @PostMapping
+    public ResponseEntity<Salida> crear(@RequestBody Salida salida){
+        return ResponseEntity.ok(salidaService.crearSalida(salida));
+    }
+
     //delete/api/clientes/{id} -> elimina un cliente por su id
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> eliminar(@PathVariable long id){

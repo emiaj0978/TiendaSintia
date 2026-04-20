@@ -22,13 +22,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
                             </td>
                 </tr>
-                        `
+                        `;
                 elemento.innerHTML += fila;
                 //console.log(cliente)
 
             }
-            //elemento.innerHTML = JSON.stringify(data);
-            //console.log(elemento)
-        })
+        });
+    // DOM (document object model) Dar accion al boton de guardar cliente
+    const btnSaveCliente = document.getElementById("btn-crearcliente");
+    btnSaveCliente.addEventListener("click", guardarCliente);
 });
 

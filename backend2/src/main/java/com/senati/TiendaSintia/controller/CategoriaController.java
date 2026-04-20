@@ -26,6 +26,12 @@ public class CategoriaController {
     @GetMapping
     public List<Categoria> listar() {return categoriaService.listarTodos();}
 
+    //POST /api/clientes -> para guardar un cliente
+    @PostMapping
+    public ResponseEntity<Categoria> crear(@RequestBody Categoria categoria){
+        return ResponseEntity.ok(categoriaService.crearCategoria(categoria));
+    }
+
     //delete/api/clientes/{id} -> elimina un cliente por su id
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> eliminar(@PathVariable long id){

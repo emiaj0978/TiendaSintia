@@ -20,6 +20,10 @@ public class EntradaService {
         return entradaRepository.findAll();
     }
 
+    // Crear un cliente        //nombre de la clase
+    public Entrada crearEntrada(Entrada entrada){
+        return entradaRepository.save(entrada);
+    }
     //Eliminar el cliente por el id
     public void eliminarEntrada(long id){
         entradaRepository.deleteById(id);

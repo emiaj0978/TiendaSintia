@@ -20,6 +20,10 @@ public class CategoriaService {
         return categoriaRepository.findAll();
     }
 
+    // Crear un cliente        //nombre de la clase
+    public Categoria crearCategoria(Categoria categoria){
+        return categoriaRepository.save(categoria);
+    }
     //Eliminar el cliente por el id
     public void eliminarCategoria(long id){
         categoriaRepository.deleteById(id);

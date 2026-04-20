@@ -26,6 +26,12 @@ public class EntradaController {
     @GetMapping
     public List<Entrada> listar() {return entradaService.listarTodos();}
 
+    //POST /api/clientes -> para guardar un cliente
+    @PostMapping
+    public ResponseEntity<Entrada> crear(@RequestBody Entrada entrada){
+        return ResponseEntity.ok(entradaService.crearEntrada(entrada));
+    }
+
     //delete/api/clientes/{id} -> elimina un cliente por su id
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> eliminar(@PathVariable long id){

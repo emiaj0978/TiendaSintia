@@ -30,15 +30,18 @@ document.addEventListener("DOMContentLoaded", () => {
                                     <i class="fas fa-trash"></i> Eliminar
                                 </button>
                             </td>
-                </tr>
-                        `
+                            </tr>
+                        `;
                 elemento.innerHTML += fila;
                 //console.log(cliente)
 
             }
-            //elemento.innerHTML = JSON.stringify(data);
-            //console.log(elemento)
-        })
+        });
+    // DOM (document object model) Dar accion al boton de guardar cliente
+    const btnSaveCliente = document.getElementById("btn-crearcliente");
+    btnSaveCliente.addEventListener("click", guardarCliente);
+
+
 });
 
 //evento de click en javascript
@@ -53,15 +56,15 @@ document.addEventListener("click", function (e) {
         fetch(`http://localhost:8080/api/productos/${id}`, {
             method: 'DELETE'
         })
-        .then(response => {
-            if (response.ok) {
-                alert('Cliente eliminado correctamente.');
-                // Recargar la página o actualizar la tabla
-                location.reload();
-            }else {
-                alert('Error al eliminar el producto.');
-            }
-        });
+            .then(response => {
+                if (response.ok) {
+                    alert('Cliente eliminado correctamente.');
+                    // Recargar la página o actualizar la tabla
+                    location.reload();
+                } else {
+                    alert('Error al eliminar el producto.');
+                }
+            });
     }
 });
 
