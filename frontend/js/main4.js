@@ -74,8 +74,8 @@ document.addEventListener("click", function (e) {
 
 // Función para guardar salida
 async function guardarSalida() {
-    const fecha = document.getElementById("s_fecha").value;      // ← usas s_nombre para fecha
-    const cantidad = document.getElementById("s_cantidad").value; // ← usas s_apellido para cantidad
+    const fecha = document.getElementById("s_fecha").value;
+    const cantidad = document.getElementById("s_cantidad").value;
     const productoId = document.getElementById("s_producto").value;
 
     if (!fecha || !cantidad || !productoId) {
@@ -129,12 +129,12 @@ async function cargarProductosSalida() {
 
 // Asignar eventos
 document.addEventListener("DOMContentLoaded", () => {
-    const btnGuardar = document.getElementById("btn-crearcliente"); // ← tu botón actual
+    const btnGuardar = document.getElementById("btn-crearcliente");
     if (btnGuardar) {
         btnGuardar.onclick = guardarSalida;
     }
     
-    const modal = document.getElementById("modalRegistroCliente"); // ← tu modal actual
+    const modal = document.getElementById("modalRegistroCliente");
     if (modal) {
         modal.addEventListener("show.bs.modal", cargarProductosSalida);
     }

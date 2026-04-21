@@ -86,7 +86,7 @@ async function guardarEntrada() {
     const entrada = {
         fecha: fecha,
         cantidad: cantidad,
-        producto: { id: parseInt(productoId) }  // Así lo espera tu backend
+        producto: { id: parseInt(productoId) }
     };
 
     try {

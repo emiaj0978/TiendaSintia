@@ -57,7 +57,7 @@ function guardarCategoria() {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ 
-      nombre_categoria: nombre,  // ← campo correcto para tu entity
+      nombre_categoria: nombre,
       descripcion: descripcion 
     }),
   }).then((response) => {
