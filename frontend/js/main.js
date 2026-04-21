@@ -148,7 +148,7 @@ async function cargarCategorias() {
         if (categorias.length === 0) {
             const option = document.createElement("option");
             option.value = "";
-            option.textContent = "⚠️ No hay categorías disponibles";
+            option.textContent = " No hay categorías disponibles";
             select.appendChild(option);
             return;
         }
