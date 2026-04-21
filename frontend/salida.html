@@ -34,25 +34,25 @@
         <div class="sidebar-logo">Tienda Sintia</div>
         <ul>
             <li>
-                <a href="producto.html" >
+                <a href="producto.html">
                     <i class="fa-solid fa-cart-shopping"></i>
                     <span>Producto</span>
                 </a>
             </li>
             <li>
-                <a href="categoria.html" >
+                <a href="categoria.html">
                     <i class="fa-solid fa-tags"></i>
                     <span>Categorias</span>
                 </a>
             </li>
-             <li>
-                <a href="entrada.html" >
+            <li>
+                <a href="entrada.html">
                     <i class="fa-solid fa-right-to-bracket"></i>
                     <span>Entrada</span>
                 </a>
             </li>
-             <li>
-                <a href="#" class="activo" data-page="home" >
+            <li>
+                <a href="#" class="activo" data-page="home">
                     <i class="fa-solid fa-truck"></i>
                     <span>Salida</span>
                 </a>
@@ -77,7 +77,7 @@
             <div class="mb-2 d-flex justify-content-between align-items-center border-bottom pb-3">
                 <h4 class="mb-0 fw-semibold"> Reporte de salida
                 </h4>
-                <button class="btn btn-primary"> Registrar
+                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalRegistroCliente"> Registrar
                 </button>
 
             </div>
@@ -90,7 +90,7 @@
                             <th>cantidad</th>
                             <th>producto</th>
                             <th>Opsiones</th>
-                            
+
                         </tr>
                     </thead>
                     <tbody id="table-salida">
@@ -99,12 +99,87 @@
                 </table>
             </div>
         </div>
-        
-
-
-        
     </main>
-    
+
+
+
+    <!-- Modal REGISTRO DE CLIENTE-->
+    <div class="modal fade" id="modalRegistroCliente" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="" class="form-label">fecha</label>
+                            <input type="text" class="form-control" id="s_fecha" name="fecha" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="" class="form-label">cantidad</label>
+                            <input type="text" class="form-control" id="s_cantidad" name="cantidad" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Producto</label>
+                            <select class="form-control" id="s_producto" required>
+                                <option value="">Seleccione...</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-primary" id="btn-crearcliente">Guardar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal EDITAR-CLIENTE-->
+    <div class="modal fade" id="modalEditarCliente" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="" class="form-label">Nombre</label>
+                            <input type="text" class="form-control" id="c_u_nombre" name="nombre" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="" class="form-label">Apellido</label>
+                            <input type="text" class="form-control" id="c_u_apellido" name="apellido" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="" class="form-label">DNI</label>
+                            <input type="text" class="form-control" id="c_u_dni" name="dni" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="" class="form-label">Teléfono</label>
+                            <input type="tel" class="form-control" id="c_u_telefono" name="telefono" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="" class="form-label">Dirección</label>
+                            <input type="text" class="form-control" id="c_u_direccion" name="direccion" required>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-primary" id="btn-Editarcliente">Actualizar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 
     <script src="js/main4.js"></script>
     <script src="js/sidebar.js"></script>
